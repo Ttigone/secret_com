@@ -1,0 +1,22 @@
+---
+BasedOnStyle: Google
+IndentWidth: 2
+ColumnLimit: 100
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+DerivePointerAlignment: false
+PointerAlignment: Left
+SortIncludes: true
+IncludeCategories:
+  # Related header first
+  - Regex: '^"(secret_com|src)/'
+    Priority: 1
+  # C system headers
+  - Regex: '^<[a-z_]+\.h>'
+    Priority: 3
+  # C++ standard library
+  - Regex: '^<'
+    Priority: 2
+  # Third-party
+  - Regex: '.*'
+    Priority: 4
