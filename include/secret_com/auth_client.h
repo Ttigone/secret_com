@@ -1,7 +1,7 @@
 // Copyright 2026 secret_com Authors. All rights reserved.
 // Use of this source code is governed by an Apache-2.0 license.
 
-// auth_client.h — Authorization client (runs on the user-facing device).
+// auth_client.h — Authorization client (typically runs on ESC side).
 
 #ifndef SECRET_COM_INCLUDE_SECRET_COM_AUTH_CLIENT_H_
 #define SECRET_COM_INCLUDE_SECRET_COM_AUTH_CLIENT_H_
@@ -25,9 +25,9 @@ namespace secret_com {
 ///
 /// Typical usage:
 /// @code
-///   // 1. Configure crypto (embed the ESC device's static public key).
+///   // 1. Configure crypto (embed the RK3506 static public key).
 ///   CryptoConfig crypto_cfg;
-///   memcpy(crypto_cfg.device_public_key, kEscPublicKey, kEcPublicKeySize);
+///   memcpy(crypto_cfg.device_public_key, kRk3506PublicKey, kEcPublicKeySize);
 ///
 ///   // 2. Create a transport (e.g. serial port).
 ///   auto transport = std::make_unique<SerialTransport>("/dev/ttyUSB0", 115200);
@@ -66,7 +66,7 @@ class AuthClient {
   /// Must be called before any other method.
   ///
   /// @param transport  Ownership is transferred.  Not yet connected here.
-  /// @param config     Must contain the ESC device's static public key.
+  /// @param config     Must contain the RK3506 side's static public key.
   /// @param crypto     Optional custom crypto backend; nullptr → mbedTLS.
   /// @return kOk or kInvalidParam.
   Status Initialize(std::unique_ptr<Transport> transport,

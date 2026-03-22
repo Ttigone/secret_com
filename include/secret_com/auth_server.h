@@ -1,7 +1,7 @@
 // Copyright 2026 secret_com Authors. All rights reserved.
 // Use of this source code is governed by an Apache-2.0 license.
 
-// auth_server.h — Authorization server (runs on the ESC device side).
+// auth_server.h — Authorization server (typically runs on RK3506 side).
 
 #ifndef SECRET_COM_INCLUDE_SECRET_COM_AUTH_SERVER_H_
 #define SECRET_COM_INCLUDE_SECRET_COM_AUTH_SERVER_H_
@@ -40,7 +40,7 @@ using AuthVerifyCallback =
 
 /// @brief Server-side authorization engine.
 ///
-/// Typical usage (on the ESC visualization host):
+/// Typical usage (on RK3506 authorization host):
 /// @code
 ///   CryptoConfig cfg;
 ///   cfg.is_server = true;
